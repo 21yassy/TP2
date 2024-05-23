@@ -1,0 +1,15 @@
+import csv  
+def Fichier_Pokemon(Fichier_CSV):
+    Pokemons = {}
+    with open(Fichier_CSV, 'r', newline='') as Fichier:
+        Lecteur = csv.reader(Fichier)
+        for Ligne in Lecteur:
+            Nom = Ligne[0]
+            Statistiques = [int(Stat) for Stat in Ligne[1:]]
+            Pokemons[Nom] = Statistiques
+    return Pokemons
+
+# Test de la fonction
+Fichier_CSV = 'pokemon.csv'
+Final = Fichier_Pokemon(Fichier_CSV)
+print(Final)
